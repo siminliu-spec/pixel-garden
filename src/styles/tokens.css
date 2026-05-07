@@ -36,13 +36,13 @@
   --seed-ground: #C0A060;
   --seed-empty: #FFFFFF;
 
-  --ui-surface-canvas: #EEF7E4;
-  --ui-surface-panel: #EDF7E1;
-  --ui-surface-hover: #C8E8B0;
-  --ui-border-default: #A0C880;
-  --ui-border-active: #1A3010;
-  --ui-text-primary: #2A3D24;
-  --ui-text-secondary: #5A8A30;
+  --ui-surface-canvas: #E8F5E9;
+  --ui-surface-panel: #E0F2E1;
+  --ui-surface-hover: #C8E6C9;
+  --ui-border-default: #A5D6A7;
+  --ui-border-active: #2E7D32;
+  --ui-text-primary: #1B5E20;
+  --ui-text-secondary: #4CAF50;
   --ui-accent-score: #FBBF24;
   --ui-accent-danger: #E24B4A;
   --ui-accent-cta: #68D988;

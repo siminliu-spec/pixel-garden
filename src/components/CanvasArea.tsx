@@ -12,20 +12,28 @@ const themeJpNames: Record<string, string> = {
   mono: '墨と紙',
 }
 
-function getCellColor(row: number, col: number, _theme: string, depthIntensity: number): string {
-  const t = row / 9
-  const noise = (Math.sin(col * 3.7 + row * 2.1) * 0.5 + Math.sin(col * 1.3 + row * 5.9) * 0.3) * 2
+function getCellColor(row: number, _col: number, theme: string, depthIntensity: number): string {
+  const themeColors: Record<string, { h: number; s: number; l: number; groundH: number; groundS: number; groundL: number }> = {
+    spring:    { h: 130, s: 30, l: 94, groundH: 110, groundS: 40, groundL: 78 },
+    midsummer: { h: 68,  s: 35, l: 93, groundH: 50,  groundS: 45, groundL: 82 },
+    autumn:    { h: 25,  s: 25, l: 15, groundH: 30,  groundS: 20, groundL: 30 },
+    winter:    { h: 215, s: 22, l: 14, groundH: 210, groundS: 18, groundL: 30 },
+    peach:     { h: 345, s: 30, l: 95, groundH: 350, groundS: 25, groundL: 85 },
+    mono:      { h: 0,   s: 0,  l: 4,  groundH: 0,   groundS: 0,  groundL: 18 },
+  };
 
-  // Base color: cool mint green — watercolor wash
-  const h = 120 + (100 - 120) * t * 0.4 + noise
-  const s = 25 + (18 - 25) * t * 0.4 + noise
-  const l = 93 - t * 8 + noise
+  const col = _col;
+  const colors = themeColors[theme] || themeColors.spring;
+  const t = row / 9;
+  const noise = (Math.sin(col * 3.7 + row * 2.1) * 0.5 + Math.sin(col * 1.3 + row * 5.9) * 0.3) * 2;
+  const blend = t * 0.3;
+  const h = colors.h + (colors.groundH - colors.h) * blend + noise;
+  const s = colors.s + (colors.groundS - colors.s) * blend + noise;
+  const l = colors.l + (colors.groundL - colors.l) * blend + noise;
+  const depthFade = (1 - t) * depthIntensity;
+  const opacity = (1 - depthFade * 0.85) * 0.55;
 
-  // Depth fade + global translucency
-  const depthFade = (1 - t) * depthIntensity
-  const opacity = (1 - depthFade * 0.85) * 0.5
-
-  return `hsla(${h}, ${Math.max(10, Math.min(40, s))}%, ${Math.max(70, Math.min(98, l))}%, ${opacity})`
+  return `hsla(${h}, ${Math.max(0, Math.min(60, s))}%, ${Math.max(3, Math.min(97, l))}%, ${opacity})`;
 }
 
 interface CanvasAreaProps {
@@ -130,9 +138,7 @@ export default function CanvasArea({ theme, gridGap, depthIntensity }: CanvasAre
       <div
         style={{
           flex: 1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          overflow: 'hidden',
           position: 'relative',
           marginTop: 24,
         }}
@@ -140,8 +146,11 @@ export default function CanvasArea({ theme, gridGap, depthIntensity }: CanvasAre
         <div
           style={{
             width: '100%',
-            minHeight: 700,
-            height: '80vh',
+            maxWidth: 1200,
+            height: '100%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            position: 'relative',
             display: 'grid',
             gridTemplateColumns: `repeat(${COLS}, 1fr)`,
             gridTemplateRows: `repeat(${ROWS}, 1fr)`,
@@ -158,20 +167,16 @@ export default function CanvasArea({ theme, gridGap, depthIntensity }: CanvasAre
               }}
             />
           ))}
-        </div>
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-          }}
-        >
           <span
             className="type-heading-3"
-            style={{ color: 'var(--ui-text-secondary)' }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              color: 'var(--ui-text-secondary)',
+              pointerEvents: 'none',
+            }}
           >
             DRAG A SEED ONTO THE GARDEN
           </span>
@@ -187,7 +192,7 @@ export default function CanvasArea({ theme, gridGap, depthIntensity }: CanvasAre
           justifyContent: 'center',
           gap: 24,
           flexShrink: 0,
-          marginTop: 24,
+          marginTop: 'auto',
         }}
       >
         {['FLOWERS', 'GREENERY', 'PROPS'].map((tab) => (
