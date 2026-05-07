@@ -1,0 +1,199 @@
+/* Layout Tokens (constant across all themes) */
+:root {
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --opacity-full: 1;
+  --opacity-muted: 0.6;
+  --opacity-subtle: 0.5;
+  --opacity-faint: 0.35;
+  --radius-none: 0;
+  --radius-small: 2px;
+  --radius-round: 50%;
+  --border-default: 1px;
+  --border-active: 1.5px;
+}
+
+/* Spring (default) */
+:root,
+[data-theme="spring"] {
+  --seed-bloom-warm: #FF9EB8;
+  --seed-bloom-warm-light: #FFC6D5;
+  --seed-bloom-cool: #B2A2FF;
+  --seed-bloom-cool-light: #D1C9FF;
+  --seed-stem: #72D984;
+  --seed-stem-dark: #3E9753;
+  --seed-bark: #A68D74;
+  --seed-stamen: #E8B84D;
+  --seed-bloom-yellow: #FFEF44;
+  --seed-accent: #FF90C0;
+  --seed-highlight: #FBFFEF;
+  --seed-water: #A9E6F7;
+  --seed-stone: #B0AEA7;
+  --seed-ground: #C0A060;
+  --seed-empty: #FFFFFF;
+
+  --ui-surface-canvas: #EEF7E4;
+  --ui-surface-panel: #EDF7E1;
+  --ui-surface-hover: #C8E8B0;
+  --ui-border-default: #A0C880;
+  --ui-border-active: #1A3010;
+  --ui-text-primary: #2A3D24;
+  --ui-text-secondary: #5A8A30;
+  --ui-accent-score: #FBBF24;
+  --ui-accent-danger: #E24B4A;
+  --ui-accent-cta: #68D988;
+}
+
+/* Midsummer */
+[data-theme="midsummer"] {
+  --seed-bloom-warm: #FF6F3F;
+  --seed-bloom-warm-light: #FFB085;
+  --seed-bloom-cool: #49D8FF;
+  --seed-bloom-cool-light: #C5E9FA;
+  --seed-stem: #7EFFAB;
+  --seed-stem-dark: #3E9762;
+  --seed-bark: #C49F8A;
+  --seed-stamen: #FF9E00;
+  --seed-bloom-yellow: #FCE300;
+  --seed-accent: #FF5C5E;
+  --seed-highlight: #FFF200;
+  --seed-water: #7ADFF7;
+  --seed-stone: #E7DBC4;
+  --seed-ground: #F6DBAD;
+  --seed-empty: #FFFFFF;
+
+  --ui-surface-canvas: #FAFFD7;
+  --ui-surface-panel: #F2F9C0;
+  --ui-surface-hover: #E9F3A1;
+  --ui-border-default: #EEDBA1;
+  --ui-border-active: #D9B244;
+  --ui-text-primary: #4A352F;
+  --ui-text-secondary: #A67C52;
+  --ui-accent-score: #FFD55F;
+  --ui-accent-danger: #D93030;
+  --ui-accent-cta: #D05A20;
+}
+
+/* Autumn */
+[data-theme="autumn"] {
+  --seed-bloom-warm: #FF9645;
+  --seed-bloom-warm-light: #FFC055;
+  --seed-bloom-cool: #B497CB;
+  --seed-bloom-cool-light: #D5C2E4;
+  --seed-stem: #8DE4B3;
+  --seed-stem-dark: #3E9762;
+  --seed-bark: #B79B8C;
+  --seed-stamen: #FFE17D;
+  --seed-bloom-yellow: #FFEF44;
+  --seed-accent: #E4896A;
+  --seed-highlight: #FFFDE0;
+  --seed-water: #A1CCDB;
+  --seed-stone: #BAC7D3;
+  --seed-ground: #DBC7A1;
+  --seed-empty: #FFFFFF;
+
+  --ui-surface-canvas: #2A1E18;
+  --ui-surface-panel: #3D302A;
+  --ui-surface-hover: #302010;
+  --ui-border-default: #F6E0A0;
+  --ui-border-active: #E8C8A0;
+  --ui-text-primary: #FFEFBE;
+  --ui-text-secondary: #A67C52;
+  --ui-accent-score: #FFE07D;
+  --ui-accent-danger: #FF708A;
+  --ui-accent-cta: #FF7A45;
+}
+
+/* Winter */
+[data-theme="winter"] {
+  --seed-bloom-warm: #D999AC;
+  --seed-bloom-warm-light: #EFCDD6;
+  --seed-bloom-cool: #AFB4DE;
+  --seed-bloom-cool-light: #CED2EF;
+  --seed-stem: #6EAD9C;
+  --seed-stem-dark: #467460;
+  --seed-bark: #748596;
+  --seed-stamen: #C9B58C;
+  --seed-bloom-yellow: #FFF491;
+  --seed-accent: #D9A8B6;
+  --seed-highlight: #F4F9FF;
+  --seed-water: #A6D6EE;
+  --seed-stone: #A5AFBA;
+  --seed-ground: #A9B9CA;
+  --seed-empty: #FFFFFF;
+
+  --ui-surface-canvas: #1B2129;
+  --ui-surface-panel: #2D3642;
+  --ui-surface-hover: #3E4B5C;
+  --ui-border-default: #182030;
+  --ui-border-active: #C0D8F0;
+  --ui-text-primary: #E8F1F7;
+  --ui-text-secondary: #6888B0;
+  --ui-accent-score: #FBBF24;
+  --ui-accent-danger: #E24B4A;
+  --ui-accent-cta: #6AC7D4;
+}
+
+/* Peach (桃色の夢) */
+[data-theme="peach"] {
+  --seed-bloom-warm: #FF63A4;
+  --seed-bloom-warm-light: #FFCFE3;
+  --seed-bloom-cool: #CCB6F7;
+  --seed-bloom-cool-light: #E7E3F7;
+  --seed-stem: #8DE4B3;
+  --seed-stem-dark: #3F8C63;
+  --seed-bark: #B79B8C;
+  --seed-stamen: #FFC055;
+  --seed-bloom-yellow: #FFEF44;
+  --seed-accent: #FF649D;
+  --seed-highlight: #FFCBD6;
+  --seed-water: #AADDF2;
+  --seed-stone: #BAC7D3;
+  --seed-ground: #DBC7A1;
+  --seed-empty: #FFFFFF;
+
+  --ui-surface-canvas: #FFF9FA;
+  --ui-surface-panel: #FCE9ED;
+  --ui-surface-hover: #F5D0DA;
+  --ui-border-default: #F7CBD6;
+  --ui-border-active: #FFD0E0;
+  --ui-text-primary: #4A393E;
+  --ui-text-secondary: #C05880;
+  --ui-accent-score: #FFE07D;
+  --ui-accent-danger: #FF708A;
+  --ui-accent-cta: #4A9EB0;
+}
+
+/* Mono (墨と紙) */
+[data-theme="mono"] {
+  --seed-bloom-warm: #B2B2B2;
+  --seed-bloom-warm-light: #D0D0D0;
+  --seed-bloom-cool: #808080;
+  --seed-bloom-cool-light: #929292;
+  --seed-stem: #5E5E5E;
+  --seed-stem-dark: #4C4C4C;
+  --seed-bark: #383838;
+  --seed-stamen: #A2A2A2;
+  --seed-bloom-yellow: #C0C0C0;
+  --seed-accent: #E0E0E0;
+  --seed-highlight: #F2F2F2;
+  --seed-water: #6E6E6E;
+  --seed-stone: #3C3C3C;
+  --seed-ground: #181818;
+  --seed-empty: #FFFFFF;
+
+  --ui-surface-canvas: #060606;
+  --ui-surface-panel: #0A0A0A;
+  --ui-surface-hover: #161616;
+  --ui-border-default: #1A1A1A;
+  --ui-border-active: #C8C8C8;
+  --ui-text-primary: #C8C8C8;
+  --ui-text-secondary: #606060;
+  --ui-accent-score: #FBBF24;
+  --ui-accent-danger: #E24B4A;
+  --ui-accent-cta: #FFFFFF;
+}

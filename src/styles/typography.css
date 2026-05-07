@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=DotGothic16&display=swap');
+
+.type-display {
+  font-family: 'Silkscreen', cursive;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.type-heading-1 {
+  font-family: 'Silkscreen', cursive;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.type-heading-2 {
+  font-family: 'Silkscreen', cursive;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.type-heading-3 {
+  font-family: 'Silkscreen', cursive;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.type-heading-4 {
+  font-family: 'Silkscreen', cursive;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.type-jp-subtitle {
+  font-family: 'DotGothic16', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.type-jp-option {
+  font-family: 'DotGothic16', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.type-button-primary {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+}
+
+.type-button-secondary {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+}
+
+.type-body {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.type-body-emphasis {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.type-caption {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.type-data {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  font-variant-numeric: tabular-nums;
+}
