@@ -141,15 +141,13 @@ export default function CanvasArea({ theme, gridGap, depthIntensity }: CanvasAre
           overflow: 'hidden',
           position: 'relative',
           marginTop: 24,
+          padding: '0 24px',
         }}
       >
         <div
           style={{
             width: '100%',
-            maxWidth: 1200,
             height: '100%',
-            marginLeft: 'auto',
-            marginRight: 'auto',
             position: 'relative',
             display: 'grid',
             gridTemplateColumns: `repeat(${COLS}, 1fr)`,
