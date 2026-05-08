@@ -27,3 +27,9 @@ You are building Pixel Garden, an interactive web toy that teaches design system
 - Garden grid: 16 col × 10 row (NOT 16×12)
 - Grid Container: width fills canvas area, height ~891px
 - Cells use `1fr` + `aspect-ratio: 1`, gap controlled by density variable
+
+## Layout rules
+- Never use maxWidth on display:grid elements directly
+- All horizontal spacing must use clamp(min, preferred, max)
+- Grid columns use repeat(N, 1fr) with fixed N
+- Test all layout changes at 1440px AND 2560px viewport width

@@ -4,15 +4,16 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body, #root {
   margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
   font-family: 'IBM Plex Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--ui-surface-canvas);
-}
-
-#root {
-  width: 100%;
-  max-width: 100%;
 }

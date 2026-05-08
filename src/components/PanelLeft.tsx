@@ -1,4 +1,3 @@
-
 const themes = [
   { key: 'spring', label: '春の目覚め', canvasColor: '#EEF7E4' },
   { key: 'midsummer', label: '真夏の太陽', canvasColor: '#FAFFD7' },
@@ -25,13 +24,9 @@ const depths = [
 
 function SectionHeader({ en, jp }: { en: string; jp: string }) {
   return (
-    <div style={{ padding: '16px 24px 0 24px' }}>
-      <div className="type-heading-1" style={{ color: 'var(--ui-text-secondary)' }}>
-        {en}
-      </div>
-      <div className="type-jp-subtitle" style={{ color: 'var(--ui-text-secondary)', marginTop: 4 }}>
-        {jp}
-      </div>
+    <div style={{ padding: '16px 16px 0 16px' }}>
+      <div className="type-heading-1" style={{ color: 'var(--ui-text-secondary)' }}>{en}</div>
+      <div className="type-jp-subtitle" style={{ color: 'var(--ui-text-secondary)', marginTop: 4 }}>{jp}</div>
     </div>
   )
 }
@@ -46,133 +41,51 @@ interface PanelLeftProps {
 }
 
 export default function PanelLeft({
-  activeTheme,
-  onThemeChange,
-  gridGap,
-  onGridGapChange,
-  depthIntensity,
-  onDepthIntensityChange,
+  activeTheme, onThemeChange, gridGap, onGridGapChange, depthIntensity, onDepthIntensityChange,
 }: PanelLeftProps) {
-
   return (
-    <div
-      style={{
-        width: 296,
-        minWidth: 296,
-        background: 'var(--ui-surface-panel)',
-        borderRight: '1px dashed var(--ui-border-default)',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Section 1: Soil / Theme */}
+    <div style={{
+      width: '100%', height: '100vh', background: 'var(--ui-surface-panel)',
+      borderRight: '1px dashed var(--ui-border-default)',
+      display: 'flex', flexDirection: 'column', overflowY: 'auto', overflowX: 'hidden',
+    }}>
       <div>
         <SectionHeader en="SOIL — THEME" jp="土壌 トークン" />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            columnGap: 8,
-            rowGap: 16,
-            padding: 16,
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, padding: 16 }}>
           {themes.map((t) => {
-            const selected = activeTheme === t.key
+            const sel = activeTheme === t.key
             return (
-              <button
-                key={t.key}
-                onClick={() => onThemeChange(t.key)}
-                style={{
-                  width: 128,
-                  height: 99,
-                  background: selected ? 'var(--ui-surface-hover)' : 'transparent',
-                  border: selected
-                    ? '2px dashed var(--ui-border-active)'
-                    : '1px dashed var(--ui-border-default)',
-                  borderRadius: 0,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8,
-                  padding: 0,
-                }}
-              >
-                <div
-                  style={{
-                    width: 120,
-                    height: 60,
-                    background: t.canvasColor,
-                    borderRadius: 0,
-                  }}
-                />
-                <span
-                  className="type-jp-option"
-                  style={{ color: 'var(--ui-text-primary)' }}
-                >
-                  {t.label}
-                </span>
+              <button key={t.key} onClick={() => onThemeChange(t.key)} style={{
+                background: sel ? 'var(--ui-surface-hover)' : 'transparent',
+                border: sel ? '2px dashed var(--ui-border-active)' : '1px dashed var(--ui-border-default)',
+                borderRadius: 0, cursor: 'pointer', display: 'flex', flexDirection: 'column',
+                alignItems: 'center', justifyContent: 'center', gap: 8, padding: 8,
+              }}>
+                <div style={{ width: '100%', height: 50, background: t.canvasColor, borderRadius: 0 }} />
+                <span className="type-jp-option" style={{ color: 'var(--ui-text-primary)', fontSize: 11 }}>{t.label}</span>
               </button>
             )
           })}
         </div>
       </div>
 
-      {/* Divider */}
       <div style={{ borderTop: '1px dashed var(--ui-border-default)' }} />
 
-      {/* Section 2: Density */}
       <div>
         <SectionHeader en="DENSITY" jp="密度 · そみつど" />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            columnGap: 8,
-            rowGap: 8,
-            padding: 16,
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, padding: 16 }}>
           {densities.map((d) => {
-            const selected = gridGap === d.gap
+            const sel = gridGap === d.gap
             return (
-              <button
-                key={d.en}
-                onClick={() => onGridGapChange(d.gap)}
-                style={{
-                  width: 128,
-                  height: 56,
-                  background: selected ? 'var(--ui-surface-hover)' : 'transparent',
-                  border: selected
-                    ? '1.5px dashed var(--ui-border-active)'
-                    : '1px dashed var(--ui-border-default)',
-                  borderRadius: 0,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '0 8px',
-                }}
-              >
-                <div
-                  style={{
-                    width: 24,
-                    height: 24,
-                    background: 'var(--ui-border-default)',
-                    borderRadius: 2,
-                    flexShrink: 0,
-                  }}
-                />
+              <button key={d.en} onClick={() => onGridGapChange(d.gap)} style={{
+                background: sel ? 'var(--ui-surface-hover)' : 'transparent',
+                border: sel ? '1.5px dashed var(--ui-border-active)' : '1px dashed var(--ui-border-default)',
+                borderRadius: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px',
+              }}>
+                <div style={{ width: 20, height: 20, background: 'var(--ui-border-default)', borderRadius: 2, flexShrink: 0 }} />
                 <div style={{ textAlign: 'left' }}>
-                  <div className="type-heading-4" style={{ color: 'var(--ui-text-primary)' }}>
-                    {d.en}
-                  </div>
-                  <div className="type-jp-option" style={{ color: 'var(--ui-text-secondary)' }}>
-                    {d.jp}
-                  </div>
+                  <div className="type-heading-4" style={{ color: 'var(--ui-text-primary)', fontSize: 11 }}>{d.en}</div>
+                  <div className="type-jp-option" style={{ color: 'var(--ui-text-secondary)', fontSize: 10 }}>{d.jp}</div>
                 </div>
               </button>
             )
@@ -180,58 +93,23 @@ export default function PanelLeft({
         </div>
       </div>
 
-      {/* Divider */}
       <div style={{ borderTop: '1px dashed var(--ui-border-default)' }} />
 
-      {/* Section 3: Depth */}
       <div>
         <SectionHeader en="DEPTH" jp="奥行き · おくゆき" />
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            columnGap: 8,
-            rowGap: 8,
-            padding: 16,
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, padding: 16 }}>
           {depths.map((d) => {
-            const selected = depthIntensity === d.intensity
+            const sel = depthIntensity === d.intensity
             return (
-              <button
-                key={d.en}
-                onClick={() => onDepthIntensityChange(d.intensity)}
-                style={{
-                  width: 128,
-                  height: 56,
-                  background: selected ? 'var(--ui-surface-hover)' : 'transparent',
-                  border: selected
-                    ? '1.5px dashed var(--ui-border-active)'
-                    : '1px dashed var(--ui-border-default)',
-                  borderRadius: 0,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '0 8px',
-                }}
-              >
-                <div
-                  style={{
-                    width: 24,
-                    height: 24,
-                    background: 'var(--ui-border-default)',
-                    borderRadius: 2,
-                    flexShrink: 0,
-                  }}
-                />
+              <button key={d.en} onClick={() => onDepthIntensityChange(d.intensity)} style={{
+                background: sel ? 'var(--ui-surface-hover)' : 'transparent',
+                border: sel ? '1.5px dashed var(--ui-border-active)' : '1px dashed var(--ui-border-default)',
+                borderRadius: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 6, padding: '6px 8px',
+              }}>
+                <div style={{ width: 20, height: 20, background: 'var(--ui-border-default)', borderRadius: 2, flexShrink: 0 }} />
                 <div style={{ textAlign: 'left' }}>
-                  <div className="type-heading-4" style={{ color: 'var(--ui-text-primary)' }}>
-                    {d.en}
-                  </div>
-                  <div className="type-jp-option" style={{ color: 'var(--ui-text-secondary)' }}>
-                    {d.jp}
-                  </div>
+                  <div className="type-heading-4" style={{ color: 'var(--ui-text-primary)', fontSize: 11 }}>{d.en}</div>
+                  <div className="type-jp-option" style={{ color: 'var(--ui-text-secondary)', fontSize: 10 }}>{d.jp}</div>
                 </div>
               </button>
             )
